@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:free_books/Core/app_routes.dart';
 
 void main() {
   runApp(const BooksApp());
@@ -9,6 +10,8 @@ class BooksApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp();
+    return MaterialApp.router(
+      routerConfig: AppRoutes.routes,
+    );
   }
 }
