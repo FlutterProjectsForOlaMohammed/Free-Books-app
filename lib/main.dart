@@ -11,6 +11,8 @@ class BooksApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
+      theme: ThemeData(brightness: Brightness.dark),
+      debugShowCheckedModeBanner: false,
       routerConfig: AppRoutes.routes,
     );
   }

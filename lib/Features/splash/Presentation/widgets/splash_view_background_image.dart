@@ -1,6 +1,6 @@
 import 'dart:ui';
-
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:free_books/Core/app_images.dart';
 
 class SplashViewBackgroundImage extends StatelessWidget {
@@ -12,13 +12,22 @@ class SplashViewBackgroundImage extends StatelessWidget {
   Widget build(BuildContext context) {
     return ImageFiltered(
       imageFilter: ImageFilter.blur(
+        tileMode: TileMode.decal,
         sigmaX: 10,
         sigmaY: 10,
       ),
       child: SizedBox.expand(
-        child: Image.asset(
-          AppImages.splashViewBackGround,
-          fit: BoxFit.fill,
+        child: Animate(
+          effects: const [
+            FadeEffect(
+                duration: Duration(seconds: 1),
+                begin: BlurEffect.neutralBlur,
+                end: BlurEffect.defaultBlur)
+          ],
+          child: Image.asset(
+            AppImages.splashViewBackGround,
+            fit: BoxFit.fill,
+          ),
         ),
       ),
     );
