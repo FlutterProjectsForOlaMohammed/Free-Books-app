@@ -9,10 +9,14 @@ class SearchButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return IconButton(
-      padding: EdgeInsets.zero,
-      onPressed: () {},
-      icon: SvgPicture.asset(AppImages.seachIcon),
+    return CircleAvatar(
+      radius: 22,
+      backgroundColor: Colors.black.withOpacity(0.09),
+      child: IconButton(
+        padding: EdgeInsets.zero,
+        onPressed: () {},
+        icon: SvgPicture.asset(AppImages.seachIcon),
+      ),
     );
   }
 }
