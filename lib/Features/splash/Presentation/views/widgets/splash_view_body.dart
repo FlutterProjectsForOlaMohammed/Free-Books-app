@@ -15,9 +15,7 @@ class SplashViewBody extends StatefulWidget {
 class _SplashViewBodyState extends State<SplashViewBody> {
   @override
   void initState() {
-    Future.delayed(const Duration(seconds: 7)).then((value) {
-      GoRouter.of(context).push(AppRoutes.homeView);
-    });
+    navigateToHomeView();
     super.initState();
   }
 
@@ -37,5 +35,11 @@ class _SplashViewBodyState extends State<SplashViewBody> {
         ),
       ],
     );
+  }
+
+  void navigateToHomeView() {
+    Future.delayed(const Duration(seconds: 7)).then((value) {
+      GoRouter.of(context).push(AppRoutes.homeView);
+    });
   }
 }
