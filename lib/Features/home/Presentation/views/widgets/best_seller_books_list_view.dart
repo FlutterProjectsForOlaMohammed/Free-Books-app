@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:free_books/Features/home/Presentation/views/widgets/home_book_item.dart';
 
-class NewestBooksListView extends StatelessWidget {
-  const NewestBooksListView({super.key});
+class BestSellerBooksListView extends StatelessWidget {
+  const BestSellerBooksListView({super.key});
 
   @override
   Widget build(BuildContext context) {
