@@ -9,15 +9,18 @@ class CustomHomeViewAppBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SliverToBoxAdapter(
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          SvgPicture.asset(
-            AppImages.appLogo,
-            height: 23,
-          ),
-          const SearchButton(),
-        ],
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 30),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            SvgPicture.asset(
+              AppImages.appLogo,
+              height: 23,
+            ),
+            const SearchButton(),
+          ],
+        ),
       ),
     );
   }
