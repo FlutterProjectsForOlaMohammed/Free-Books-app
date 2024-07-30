@@ -7,21 +7,18 @@ class BookDetailsView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return DefaultTabController(
-      length: 3,
-      child: Scaffold(
-        body: Stack(
-          children: [
-            Container(
-              decoration: BoxDecoration(
-                gradient: griadientAppColors(),
-              ),
+    return Scaffold(
+      body: Stack(
+        children: [
+          Container(
+            decoration: BoxDecoration(
+              gradient: griadientAppColors(),
             ),
-            const SafeArea(
-              child: BookDetailsViewBody(),
-            )
-          ],
-        ),
+          ),
+          const SafeArea(
+            child: BookDetailsViewBody(),
+          )
+        ],
       ),
     );
   }

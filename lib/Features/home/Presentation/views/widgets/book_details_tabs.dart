@@ -4,25 +4,25 @@ import 'package:free_books/Core/text_styles.dart';
 class BookDetailsTabs extends StatelessWidget {
   const BookDetailsTabs({
     super.key,
+    required this.tabController,
   });
-
+  final TabController tabController;
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: Align(
-        alignment: Alignment.topCenter,
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 32),
-          child: TabBar(
-            labelColor: const Color.fromARGB(255, 12, 66, 110),
-            unselectedLabelColor: Colors.grey,
-            indicatorColor: const Color.fromARGB(255, 12, 66, 110),
-            labelPadding: const EdgeInsets.only(
-              bottom: 24,
-            ),
-            indicatorSize: TabBarIndicatorSize.tab,
-            tabs: createdBookDetailsTabs,
+    return SizedBox(
+      height: 50,
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 32),
+        child: TabBar(
+          controller: tabController,
+          labelColor: const Color.fromARGB(255, 12, 66, 110),
+          unselectedLabelColor: Colors.grey,
+          indicatorColor: const Color.fromARGB(255, 12, 66, 110),
+          labelPadding: const EdgeInsets.only(
+            bottom: 16,
           ),
+          indicatorSize: TabBarIndicatorSize.tab,
+          tabs: createdBookDetailsTabs,
         ),
       ),
     );
@@ -30,18 +30,44 @@ class BookDetailsTabs extends StatelessWidget {
 
   List<Widget> get createdBookDetailsTabs {
     return [
-      const Text(
-        "Overview",
-        style: TextStyles.textStyle20,
+      const Tab(
+        child: Text(
+          "Overview",
+          style: TextStyles.textStyle20,
+        ),
       ),
-      const Text(
-        "Author/s",
-        style: TextStyles.textStyle20,
+      const Tab(
+        child: Text(
+          "Author/s",
+          style: TextStyles.textStyle20,
+        ),
       ),
-      const Text(
-        "Review",
-        style: TextStyles.textStyle20,
+      const Tab(
+        child: Text(
+          "Review",
+          style: TextStyles.textStyle20,
+        ),
       ),
     ];
+  }
+}
+
+class CustomTabBody extends StatelessWidget {
+  const CustomTabBody({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      child: const Text('''
+
+You can modify the tab indicator in TabBar to customize the look and feel of your Flutter app.
+
+Below are some examples of ways you can modify the indicator to improve the user experience and overall appearance of your app.
+Changing the background color of tab is as easy as changing the color: Colors.greenAccent.
+Changing the background color of tab is as easy as changing the color: Colors.greenAccent.
+Changing the background color of tab is as easy as changing the color: Colors.greenAccent.
+Changing the background color of tab is as easy as changing the color: Colors.greenAccent.
+'''),
+    );
   }
 }
