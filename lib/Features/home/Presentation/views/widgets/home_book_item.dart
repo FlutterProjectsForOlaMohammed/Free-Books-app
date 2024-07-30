@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:free_books/Core/app_routes.dart';
 import 'package:free_books/Core/text_styles.dart';
 import 'package:free_books/Features/home/Presentation/views/widgets/book_image.dart';
+import 'package:go_router/go_router.dart';
 import 'package:simple_gradient_text/simple_gradient_text.dart';
 
 class HomeBookItem extends StatelessWidget {
@@ -11,7 +13,9 @@ class HomeBookItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () {},
+      onTap: () {
+        GoRouter.of(context).push(AppRoutes.bookDetailsView);
+      },
       child: SizedBox(
         width: MediaQuery.of(context).size.width * 0.35,
         child: Column(

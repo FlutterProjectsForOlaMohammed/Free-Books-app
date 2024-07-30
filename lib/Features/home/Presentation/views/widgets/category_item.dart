@@ -5,17 +5,19 @@ import 'package:simple_gradient_text/simple_gradient_text.dart';
 class CategoryItem extends StatelessWidget {
   const CategoryItem({
     super.key,
+    required this.onTap,
+    required this.backgroundColor,
   });
-
+  final Color backgroundColor;
+  final void Function() onTap;
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () {},
+      onTap: onTap,
       child: Container(
         margin: const EdgeInsets.symmetric(vertical: 16),
         decoration: BoxDecoration(
-            color: Colors.black.withOpacity(0.08),
-            borderRadius: BorderRadius.circular(16)),
+            color: backgroundColor, borderRadius: BorderRadius.circular(16)),
         padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
         alignment: Alignment.center,
         child: GradientText(
