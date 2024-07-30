@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 abstract class TextStyles {
   static const textStyle24 =
@@ -8,4 +9,6 @@ abstract class TextStyles {
       TextStyle(fontSize: 20, fontWeight: FontWeight.w600);
   static const textStyle30 =
       TextStyle(fontSize: 30, fontWeight: FontWeight.w600);
+  static TextStyle textStyle20Roboto =
+      GoogleFonts.roboto(fontSize: 20, fontWeight: FontWeight.w600);
 }
