@@ -17,23 +17,17 @@ class _BookDetailsViewBodyState extends State<BookDetailsViewBody>
   @override
   Widget build(BuildContext context) {
     TabController tabController = TabController(length: 3, vsync: this);
-    return CustomScrollView(
-      slivers: [
-        SliverToBoxAdapter(
-          child: Column(
-            children: [
-              const WavedBookImage(),
-              const Text(
-                "Book Name",
-                textAlign: TextAlign.center,
-                maxLines: 5,
-                style: TextStyles.textStyle30,
-              ),
-              const GeneralBookDetailsInfo(),
-              BookDetailsTabs(tabController: tabController),
-            ],
-          ),
+    return Column(
+      children: [
+        const WavedBookImage(),
+        const Text(
+          "Book Name",
+          textAlign: TextAlign.center,
+          maxLines: 5,
+          style: TextStyles.textStyle30,
         ),
+        const GeneralBookDetailsInfo(),
+        BookDetailsTabs(tabController: tabController),
         BookDetailsTabsBody(tabController: tabController),
       ],
     );

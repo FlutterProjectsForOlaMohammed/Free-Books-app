@@ -8,12 +8,15 @@ class BookDetailsTabsBody extends StatelessWidget {
   final TabController tabController;
   @override
   Widget build(BuildContext context) {
-    return SliverFillRemaining(
-      child: TabBarView(controller: tabController, children: const [
-        Overview(),
-        AuthorsListView(),
-        ReviewsListView(),
-      ]),
+    return Expanded(
+      child: TabBarView(
+        controller: tabController,
+        children: const [
+          Overview(),
+          AuthorsListView(),
+          ReviewsListView(),
+        ],
+      ),
     );
   }
 }
