@@ -5,16 +5,21 @@ import 'package:free_books/Core/app_images.dart';
 class SearchButton extends StatelessWidget {
   const SearchButton({
     super.key,
+    required this.backgroundColor,
+    required this.radius,
+    required this.onPressed,
   });
-
+  final Color backgroundColor;
+  final double radius;
+  final void Function() onPressed;
   @override
   Widget build(BuildContext context) {
     return CircleAvatar(
-      radius: 22,
-      backgroundColor: Colors.black.withOpacity(0.09),
+      radius: radius,
+      backgroundColor: backgroundColor,
       child: IconButton(
         padding: EdgeInsets.zero,
-        onPressed: () {},
+        onPressed: onPressed,
         icon: SvgPicture.asset(AppImages.seachIcon),
       ),
     );
