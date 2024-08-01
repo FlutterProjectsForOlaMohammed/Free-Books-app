@@ -12,6 +12,7 @@ class CustomSearchTextFormField extends StatefulWidget {
 class _CustomSearchTextFormFieldState extends State<CustomSearchTextFormField> {
   GlobalKey<FormState> formKey = GlobalKey();
   late String searchedText;
+  AutovalidateMode? autovalidateMode = AutovalidateMode.disabled;
   @override
   Widget build(BuildContext context) {
     return Form(
@@ -25,11 +26,17 @@ class _CustomSearchTextFormFieldState extends State<CustomSearchTextFormField> {
           onSaved: (newValue) {
             searchedText = newValue!;
           },
+          autovalidateMode: autovalidateMode,
           validator: (value) {
             if (value?.isEmpty ?? true) {
               return 'Field is Required ...';
             }
             return null;
+          },
+          onChanged: (value) {
+            setState(() {
+              autovalidateMode = AutovalidateMode.onUserInteraction;
+            });
           },
           cursorColor: Colors.grey,
           style: TextStyle(

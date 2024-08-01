@@ -4,7 +4,7 @@ import 'package:free_books/Features/home/Presentation/views/widgets/best_seller_
 import 'package:free_books/Features/home/Presentation/views/widgets/categories_section.dart';
 import 'package:free_books/Features/home/Presentation/views/widgets/custom_home_view_app_bar.dart';
 import 'package:free_books/Features/home/Presentation/views/widgets/newest_section.dart';
-import 'package:free_books/Features/home/Presentation/views/widgets/similar_books_list_view.dart';
+import 'package:free_books/Features/home/Presentation/views/widgets/vertical_books_list_view.dart';
 
 class HomeViewBody extends StatelessWidget {
   const HomeViewBody({super.key});
@@ -29,7 +29,7 @@ class HomeViewBody extends StatelessWidget {
               ),
             ),
           ),
-          SimilarBooksListView(),
+          verticalBooksListView(),
         ],
       ),
     );
