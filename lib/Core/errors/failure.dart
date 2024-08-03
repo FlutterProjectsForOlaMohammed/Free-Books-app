@@ -77,3 +77,11 @@ class DioExceptionsFailures extends Failure {
     }
   }
 }
+
+class UnExpectedException extends Failure {
+  final String errMessage;
+
+  UnExpectedException({
+    required this.errMessage,
+  });
+}

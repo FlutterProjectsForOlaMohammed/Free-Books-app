@@ -19,7 +19,7 @@ class HomeViewBody extends StatelessWidget {
           CustomHomeViewAppBar(),
           CategoriesSection(),
           NewestSection(),
-          BestSellerSection(),
+          FreeBooks(),
           SliverToBoxAdapter(
             child: Padding(
               padding: EdgeInsets.symmetric(horizontal: 30, vertical: 16),
@@ -29,7 +29,7 @@ class HomeViewBody extends StatelessWidget {
               ),
             ),
           ),
-          verticalBooksListView(),
+          VerticalBooksListView(),
         ],
       ),
     );

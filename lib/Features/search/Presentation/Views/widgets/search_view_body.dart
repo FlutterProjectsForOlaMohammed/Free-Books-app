@@ -23,7 +23,7 @@ class SearchViewBody extends StatelessWidget {
         SearchResultsWidget(),
         SliverPadding(
           padding: EdgeInsets.only(bottom: 24),
-          sliver: verticalBooksListView(),
+          sliver: VerticalBooksListView(),
         ),
       ],
     );
