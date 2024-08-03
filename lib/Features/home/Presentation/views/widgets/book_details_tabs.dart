@@ -44,7 +44,7 @@ class BookDetailsTabs extends StatelessWidget {
       ),
       const Tab(
         child: Text(
-          "Review",
+          "Download",
           style: TextStyles.textStyle20,
         ),
       ),
