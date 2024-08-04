@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:free_books/Core/Functions/view_animation.dart';
+import 'package:free_books/Features/home/Presentation/view%20models/Newest%20Books%20Cubit/newest_books_cubit.dart';
 import 'package:free_books/Features/home/Presentation/views/book_details_view.dart';
 import 'package:free_books/Features/home/Presentation/views/home_view.dart';
+import 'package:free_books/Features/home/data/Models/books_model/item.dart';
+import 'package:free_books/Features/home/data/Repos/home_repo_implementation.dart';
 import 'package:free_books/Features/search/Presentation/Views/search_view.dart';
 import 'package:free_books/Features/splash/Presentation/views/splash_view.dart';
 import 'package:go_router/go_router.dart';
@@ -24,7 +28,12 @@ abstract class AppRoutes {
         pageBuilder: (context, state) {
           return viewAnimation(
             state: state,
-            child: const HomeView(),
+            child: BlocProvider(
+              create: (context) => NewestBooksCubit(
+                HomeRepoImplementation(),
+              ),
+              child: const HomeView(),
+            ),
           );
         },
       ),
@@ -33,7 +42,9 @@ abstract class AppRoutes {
         pageBuilder: (context, state) {
           return viewAnimation(
             state: state,
-            child: const BookDetailsView(),
+            child: BookDetailsView(
+              book: state.extra as Item,
+            ),
           );
         },
       ),

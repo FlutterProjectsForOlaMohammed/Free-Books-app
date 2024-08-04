@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:free_books/Features/home/Presentation/views/widgets/home_book_item.dart';
 
 class FreeBooksListView extends StatelessWidget {
   const FreeBooksListView({super.key});
@@ -13,7 +12,8 @@ class FreeBooksListView extends StatelessWidget {
           physics: const BouncingScrollPhysics(),
           scrollDirection: Axis.horizontal,
           itemBuilder: (context, index) {
-            return const HomeBookItem();
+            return;
+            // HomeBookItem();
           },
           separatorBuilder: (context, index) {
             return const SizedBox(

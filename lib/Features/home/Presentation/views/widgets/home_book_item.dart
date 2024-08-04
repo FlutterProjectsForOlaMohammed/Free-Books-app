@@ -1,31 +1,38 @@
 import 'package:flutter/material.dart';
-import 'package:free_books/Core/app_routes.dart';
-import 'package:free_books/Core/text_styles.dart';
+import 'package:free_books/Core/utils/app_routes.dart';
+import 'package:free_books/Core/utils/text_styles.dart';
 import 'package:free_books/Features/home/Presentation/views/widgets/book_image.dart';
+import 'package:free_books/Features/home/data/Models/books_model/item.dart';
 import 'package:go_router/go_router.dart';
 import 'package:simple_gradient_text/simple_gradient_text.dart';
 
 class HomeBookItem extends StatelessWidget {
   const HomeBookItem({
     super.key,
+    required this.book,
   });
-
+  final Item book;
   @override
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        GoRouter.of(context).push(AppRoutes.bookDetailsView);
+        GoRouter.of(context).push(
+          AppRoutes.bookDetailsView,
+          extra: book,
+        );
       },
       child: SizedBox(
         width: MediaQuery.of(context).size.width * 0.35,
         child: Column(
           children: [
-            const BookImage(),
+            BookImage(
+              book: book,
+            ),
             const SizedBox(
               height: 8,
             ),
             GradientText(
-              "Book Name",
+              book.volumeInfo!.title!,
               maxLines: 2,
               colors: const [
                 Color.fromARGB(255, 10, 67, 114),
@@ -34,7 +41,7 @@ class HomeBookItem extends StatelessWidget {
               ],
               overflow: TextOverflow.ellipsis,
               style: TextStyles.textStyle24,
-            )
+            ),
           ],
         ),
       ),

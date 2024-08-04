@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:free_books/Core/text_styles.dart';
+import 'package:free_books/Core/utils/text_styles.dart';
 import 'package:free_books/Features/home/Presentation/views/widgets/vertical_books_list_view.dart';
 import 'package:free_books/Features/search/Presentation/Views/custom_search_text_form_field.dart';
 

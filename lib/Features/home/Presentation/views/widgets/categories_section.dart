@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:free_books/Core/text_styles.dart';
+import 'package:free_books/Core/utils/text_styles.dart';
 import 'package:free_books/Features/home/Presentation/views/widgets/category_list_view.dart';
 
 class CategoriesSection extends StatelessWidget {

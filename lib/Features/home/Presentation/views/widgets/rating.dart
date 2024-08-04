@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
-import 'package:free_books/Core/text_styles.dart';
+import 'package:free_books/Core/utils/text_styles.dart';
 
 class Rating extends StatelessWidget {
   const Rating({

@@ -19,7 +19,7 @@ class HomeRepoImplementation implements HomeRepo {
     } on Exception catch (e) {
       return left(
         UnExpectedException(
-          errMessage: e.toString(),
+          message: e.toString(),
         ),
       );
     }
@@ -28,16 +28,17 @@ class HomeRepoImplementation implements HomeRepo {
   @override
   Future<Either<Failure, List<Item>>> fetchNewestBooks() async {
     try {
-      BooksModel books = await Api(Dio()).getRequest(
+      var data = await Api(Dio()).getRequest(
         endPoint: 'volumes?Filtering=ebooks&q=subject:general&Sorting=newest',
       );
+      BooksModel books = BooksModel.fromJson(data);
       return right(books.items!);
     } on DioException catch (e) {
       return left(DioExceptionsFailures.handleErrors(e));
     } on Exception catch (e) {
       return left(
         UnExpectedException(
-          errMessage: e.toString(),
+          message: e.toString(),
         ),
       );
     }
@@ -56,7 +57,7 @@ class HomeRepoImplementation implements HomeRepo {
     } on Exception catch (e) {
       return left(
         UnExpectedException(
-          errMessage: e.toString(),
+          message: e.toString(),
         ),
       );
     }

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:free_books/Core/app_routes.dart';
-import 'package:free_books/Core/text_styles.dart';
-import 'package:free_books/Features/home/Presentation/views/widgets/book_image.dart';
+import 'package:free_books/Core/utils/app_routes.dart';
+import 'package:free_books/Core/utils/text_styles.dart';
 import 'package:free_books/Features/home/Presentation/views/widgets/rating.dart';
 import 'package:go_router/go_router.dart';
 
@@ -20,7 +19,7 @@ class VerticalBookItem extends StatelessWidget {
             height: MediaQuery.of(context).size.height * 0.14,
             child: Row(
               children: [
-                const BookImage(),
+                //  const BookImage(),
                 const SizedBox(
                   width: 24,
                 ),

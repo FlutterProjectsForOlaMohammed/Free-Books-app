@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:free_books/Core/text_styles.dart';
-import 'package:free_books/Features/home/Presentation/views/widgets/person_image.dart';
+import 'package:free_books/Core/utils/text_styles.dart';
+import 'package:free_books/Features/home/Presentation/views/widgets/circular_image.dart';
 
 class AuthorDetails extends StatelessWidget {
   const AuthorDetails({
@@ -12,7 +12,7 @@ class AuthorDetails extends StatelessWidget {
     return const Padding(
       padding: EdgeInsets.symmetric(horizontal: 36, vertical: 8),
       child: ListTile(
-        leading: PersonImage(),
+        leading: CircularImage(),
         title: Text(
           "Author Name ",
           style: TextStyles.textStyle20,

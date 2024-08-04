@@ -1,31 +1,35 @@
 import 'package:dio/dio.dart';
 
-abstract class Failure {}
+abstract class Failure {
+  final String errMessage;
+
+  Failure({required this.errMessage});
+}
 
 class DioExceptionsFailures extends Failure {
-  late String errMessage;
+  late String message;
 
   DioExceptionsFailures({
-    required this.errMessage,
-  });
+    required message,
+  }) : super(errMessage: message);
   factory DioExceptionsFailures.handleErrors(DioException dioError) {
     switch (dioError.type) {
       case DioExceptionType.connectionTimeout:
         return DioExceptionsFailures(
-          errMessage: 'Connection timed out.',
+          message: 'Connection timed out.',
         );
       case DioExceptionType.sendTimeout:
         return DioExceptionsFailures(
-          errMessage: 'Request timed out while sending.',
+          message: 'Request timed out while sending.',
         );
       case DioExceptionType.receiveTimeout:
         return DioExceptionsFailures(
-          errMessage:
+          message:
               'Response timed out. The server might be slow or unavailable.',
         );
       case DioExceptionType.badCertificate:
         return DioExceptionsFailures(
-          errMessage:
+          message:
               'Invalid SSL certificate. Please ensure you have a secure connection.',
         );
       case DioExceptionType.badResponse:
@@ -34,21 +38,20 @@ class DioExceptionsFailures extends Failure {
 
       case DioExceptionType.cancel:
         return DioExceptionsFailures(
-          errMessage: 'Request was cancelled.',
+          message: 'Request was cancelled.',
         );
       case DioExceptionType.connectionError:
         return DioExceptionsFailures(
-          errMessage:
-              'Connection error. Please check your internet connection.',
+          message: 'Connection error. Please check your internet connection.',
         );
       default:
         if (dioError.message?.contains("SocketException") ?? false) {
           return DioExceptionsFailures(
-            errMessage: "No Internet Connection , Check Your Connection . ",
+            message: "No Internet Connection , Check Your Connection . ",
           );
         } else {
           return DioExceptionsFailures(
-            errMessage: "An error occurred. Please try again later.",
+            message: "An error occurred. Please try again later.",
           );
         }
     }
@@ -58,30 +61,30 @@ class DioExceptionsFailures extends Failure {
   }) {
     if (statusCode == 400) {
       return DioExceptionsFailures(
-          errMessage: 'Bad request. Please check your input and try again.');
+          message: 'Bad request. Please check your input and try again.');
     } else if (statusCode == 401) {
       return DioExceptionsFailures(
-          errMessage: 'Unauthorized. Please check your credentials.');
+          message: 'Unauthorized. Please check your credentials.');
     } else if (statusCode == 403) {
       return DioExceptionsFailures(
-          errMessage: 'Forbidden. You do not have permission to access this.');
+          message: 'Forbidden. You do not have permission to access this.');
     } else if (statusCode == 404) {
       return DioExceptionsFailures(
-          errMessage: 'Not found. The requested resource could not be found.');
+          message: 'Not found. The requested resource could not be found.');
     } else if (statusCode == 500) {
       return DioExceptionsFailures(
-          errMessage: 'Server error. Please try again later.');
+          message: 'Server error. Please try again later.');
     } else {
       return DioExceptionsFailures(
-          errMessage: "An error occurred. Please try again later.");
+          message: "An error occurred. Please try again later.");
     }
   }
 }
 
 class UnExpectedException extends Failure {
-  final String errMessage;
+  final String message;
 
   UnExpectedException({
-    required this.errMessage,
-  });
+    required this.message,
+  }) : super(errMessage: message);
 }

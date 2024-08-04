@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:free_books/Core/widgets/loading_indicator.dart';
+import 'package:free_books/Features/home/Presentation/view%20models/Newest%20Books%20Cubit/newest_books_cubit.dart';
+import 'package:free_books/Features/home/Presentation/views/widgets/custom_error_widget.dart';
 import 'package:free_books/Features/home/Presentation/views/widgets/home_book_item.dart';
 
 class NewestBooksListView extends StatelessWidget {
@@ -7,20 +11,31 @@ class NewestBooksListView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: MediaQuery.of(context).size.height * 0.3,
-      child: ListView.separated(
-          padding: const EdgeInsets.symmetric(horizontal: 30),
-          physics: const BouncingScrollPhysics(),
-          scrollDirection: Axis.horizontal,
-          itemBuilder: (context, index) {
-            return const HomeBookItem();
-          },
-          separatorBuilder: (context, index) {
-            return const SizedBox(
-              width: 12,
+      height: MediaQuery.of(context).size.height * 0.34,
+      child: BlocBuilder<NewestBooksCubit, NewestBooksState>(
+        builder: (context, state) {
+          if (state is NewestBooksSuccessful) {
+            return ListView.separated(
+              padding: const EdgeInsets.symmetric(horizontal: 30),
+              physics: const BouncingScrollPhysics(),
+              scrollDirection: Axis.horizontal,
+              itemBuilder: (context, index) {
+                return HomeBookItem(book: state.books[index]);
+              },
+              separatorBuilder: (context, index) {
+                return const SizedBox(
+                  width: 12,
+                );
+              },
+              itemCount: state.books.length,
             );
-          },
-          itemCount: 10),
+          } else if (state is NewestBooksFailure) {
+            return CustomErrorWidget(text: state.errMessgae);
+          } else {
+            return const Loading();
+          }
+        },
+      ),
     );
   }
 }

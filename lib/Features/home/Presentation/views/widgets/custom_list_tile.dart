@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:free_books/Core/constants.dart';
-import 'package:free_books/Core/text_styles.dart';
-import 'package:free_books/Features/home/Presentation/views/widgets/person_image.dart';
+import 'package:free_books/Core/utils/constants.dart';
+import 'package:free_books/Core/utils/text_styles.dart';
+import 'package:free_books/Features/home/Presentation/views/widgets/circular_image.dart';
 
 class CustomListTile extends StatelessWidget {
   const CustomListTile({
@@ -23,7 +23,7 @@ class CustomListTile extends StatelessWidget {
           ListTile(
             onTap: onPressed,
             enabled: enabled,
-            leading: const PersonImage(),
+            leading: const CircularImage(),
             title: Text(
               text,
               style: TextStyles.textStyle20,
@@ -58,4 +58,3 @@ class CustomListTile extends StatelessWidget {
     );
   }
 }
-//const Color.fromARGB(255, 9, 94, 137) when it is avaliable

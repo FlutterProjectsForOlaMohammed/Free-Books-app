@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-import 'package:free_books/Core/app_routes.dart';
+import 'package:free_books/Core/utils/app_routes.dart';
 import 'package:free_books/Core/widgets/app_logo.dart';
 import 'package:free_books/Features/splash/Presentation/views/widgets/splash_view_background_image.dart';
 import 'package:go_router/go_router.dart';

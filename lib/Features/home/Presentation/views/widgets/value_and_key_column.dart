@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:free_books/Core/text_styles.dart';
+import 'package:free_books/Core/utils/text_styles.dart';
 
 class ValueAndKeywordColumn extends StatelessWidget {
   const ValueAndKeywordColumn({

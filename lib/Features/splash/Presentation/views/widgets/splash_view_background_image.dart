@@ -1,7 +1,7 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-import 'package:free_books/Core/app_images.dart';
+import 'package:free_books/Core/utils/app_images.dart';
 
 class SplashViewBackgroundImage extends StatelessWidget {
   const SplashViewBackgroundImage({

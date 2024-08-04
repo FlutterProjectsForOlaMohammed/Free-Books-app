@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:free_books/Core/text_styles.dart';
-import 'package:free_books/Features/home/Presentation/views/widgets/best_seller_books_list_view.dart';
+import 'package:free_books/Core/utils/text_styles.dart';
+import 'package:free_books/Features/home/Presentation/views/widgets/free_books_list_view.dart';
 
 class FreeBooks extends StatelessWidget {
   const FreeBooks({super.key});

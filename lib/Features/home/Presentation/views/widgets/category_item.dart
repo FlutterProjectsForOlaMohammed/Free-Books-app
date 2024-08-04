@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:free_books/Core/text_styles.dart';
+import 'package:free_books/Core/utils/text_styles.dart';
 import 'package:simple_gradient_text/simple_gradient_text.dart';
 
 class CategoryItem extends StatelessWidget {

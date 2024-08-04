@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:free_books/Core/app_images.dart';
-import 'package:free_books/Core/app_routes.dart';
+import 'package:free_books/Core/utils/app_images.dart';
+import 'package:free_books/Core/utils/app_routes.dart';
 import 'package:free_books/Features/home/Presentation/views/widgets/search_button.dart';
 import 'package:go_router/go_router.dart';
 

@@ -1,25 +1,28 @@
+import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter_custom_clippers/flutter_custom_clippers.dart';
-import 'package:free_books/Core/app_images.dart';
+import 'package:free_books/Features/home/Presentation/views/widgets/book_image.dart';
+import 'package:free_books/Features/home/data/Models/books_model/item.dart';
 
 class WavedBookImage extends StatelessWidget {
   const WavedBookImage({
     super.key,
+    required this.book,
   });
-
+  final Item book;
   @override
   Widget build(BuildContext context) {
     return ClipPath(
-      clipper: WaveClipperTwo(),
+      clipper: OvalBottomBorderClipper(),
       child: Container(
-        height: MediaQuery.of(context).size.height * 0.36,
+        height: MediaQuery.of(context).size.height * 0.30,
         width: MediaQuery.of(context).size.width,
         decoration: const BoxDecoration(
-          color: Color.fromARGB(255, 190, 147, 53),
-          image: DecorationImage(
-            fit: BoxFit.cover,
-            image: AssetImage(AppImages.splashViewBackGround),
-          ),
+          color: Colors.grey,
+        ),
+        child: ImageFiltered(
+          imageFilter: ImageFilter.blur(sigmaX: 20, sigmaY: 20),
+          child: BookImage(book: book),
         ),
       ),
     );
