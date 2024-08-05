@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:free_books/Core/utils/app_images.dart';
 
 class CircularImage extends StatelessWidget {
   const CircularImage({
@@ -8,9 +7,14 @@ class CircularImage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const CircleAvatar(
+    return CircleAvatar(
+      backgroundColor: Colors.black.withOpacity(0.06),
       radius: 28,
-      backgroundImage: AssetImage(AppImages.splashViewBackGround),
+      child: Icon(
+        Icons.perm_identity_sharp,
+        size: 32,
+        color: Colors.grey,
+      ),
     );
   }
 }

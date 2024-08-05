@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:free_books/Core/utils/constants.dart';
 import 'package:free_books/Core/utils/text_styles.dart';
-import 'package:free_books/Features/home/Presentation/views/widgets/circular_image.dart';
 
 class CustomListTile extends StatelessWidget {
   const CustomListTile({
@@ -9,11 +8,13 @@ class CustomListTile extends StatelessWidget {
     required this.enabled,
     required this.onPressed,
     required this.text,
+    this.icon,
   });
 
   final bool enabled;
   final VoidCallback onPressed;
   final String text;
+  final IconData? icon;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -23,7 +24,15 @@ class CustomListTile extends StatelessWidget {
           ListTile(
             onTap: onPressed,
             enabled: enabled,
-            leading: const CircularImage(),
+            leading: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Icon(
+                  icon,
+                  size: 32,
+                ),
+              ],
+            ),
             title: Text(
               text,
               style: TextStyles.textStyle20,

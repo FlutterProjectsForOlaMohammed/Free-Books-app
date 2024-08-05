@@ -10,12 +10,12 @@ class NewestBooksListView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: MediaQuery.of(context).size.height * 0.34,
-      child: BlocBuilder<NewestBooksCubit, NewestBooksState>(
-        builder: (context, state) {
-          if (state is NewestBooksSuccessful) {
-            return ListView.separated(
+    return BlocBuilder<NewestBooksCubit, NewestBooksState>(
+      builder: (context, state) {
+        if (state is NewestBooksSuccessful) {
+          return SizedBox(
+            height: MediaQuery.of(context).size.height * 0.34,
+            child: ListView.separated(
               padding: const EdgeInsets.symmetric(horizontal: 30),
               physics: const BouncingScrollPhysics(),
               scrollDirection: Axis.horizontal,
@@ -28,14 +28,15 @@ class NewestBooksListView extends StatelessWidget {
                 );
               },
               itemCount: state.books.length,
-            );
-          } else if (state is NewestBooksFailure) {
-            return CustomErrorWidget(text: state.errMessgae);
-          } else {
-            return const Loading();
-          }
-        },
-      ),
+            ),
+          );
+        } else if (state is NewestBooksFailure) {
+          return SizedBox(
+              height: 100, child: CustomErrorWidget(text: state.errMessgae));
+        } else {
+          return const Loading();
+        }
+      },
     );
   }
 }

@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:free_books/Core/utils/text_styles.dart';
+import 'package:free_books/Features/home/data/Models/books_model/item.dart';
 
 class Overview extends StatefulWidget {
   const Overview({
     super.key,
+    required this.book,
   });
+  final Item book;
   @override
   State<Overview> createState() => _OverviewState();
 }
@@ -22,14 +26,10 @@ class _OverviewState extends State<Overview> {
         child: SingleChildScrollView(
           controller: scrollController,
           physics: const BouncingScrollPhysics(),
-          child: const Text(
-              '''For a column that will store both numeric values and their corresponding descriptive keywords, a suitable and versatile name could be "ValueAndKeyword". This name is generic enough to be used for different contexts like ratings, pages, and languages, while still being descriptive of its purpose.
-              For a column that will store both numeric values and their corresponding descriptive keywords, a suitable and versatile name could be "ValueAndKeyword". This name is generic enough to be used for different contexts like ratings, pages, and languages, while still being descriptive of its purpose.
-              For a column that will store both numeric values and their corresponding descriptive keywords, a suitable and versatile name could be "ValueAndKeyword". This name is generic enough to be used for different contexts like ratings, pages, and languages, while still being descriptive of its purpose.
-              For a column that will store both numeric values and their corresponding descriptive keywords, a suitable and versatile name could be "ValueAndKeyword". This name is generic enough to be used for different contexts like ratings, pages, and languages, while still being descriptive of its purpose.
-              For a column that will store both numeric values and their corresponding descriptive keywords, a suitable and versatile name could be "ValueAndKeyword". This name is generic enough to be used for different contexts like ratings, pages, and languages, while still being descriptive of its purpose.
-              For a column that will store both numeric values and their corresponding descriptive keywords, a suitable and versatile name could be "ValueAndKeyword". This name is generic enough to be used for different contexts like ratings, pages, and languages, while still being descriptive of its purpose.
-              '''),
+          child: Text(
+            widget.book.volumeInfo?.description ?? "",
+            style: TextStyles.textStyle20,
+          ),
         ),
       ),
     );

@@ -74,6 +74,11 @@ class DioExceptionsFailures extends Failure {
     } else if (statusCode == 500) {
       return DioExceptionsFailures(
           message: 'Server error. Please try again later.');
+    } else if (statusCode == 429) {
+      return DioExceptionsFailures(
+        message:
+            "You sent too many requests in a given amount of time , Please Wait !!",
+      );
     } else {
       return DioExceptionsFailures(
           message: "An error occurred. Please try again later.");
