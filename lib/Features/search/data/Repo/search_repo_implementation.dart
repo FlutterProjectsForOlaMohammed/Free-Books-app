@@ -15,7 +15,7 @@ class SearchRepoImplementation implements SearchRepo {
       {required String keyword}) async {
     try {
       var data = await api.getRequest(
-        endPoint: 'volumes?Filtering=free-ebooks&q=subject:$keyword',
+        endPoint: 'volumes?Filtering=free-ebooks&q=title:$keyword',
       );
       BooksModel books = BooksModel.fromJson(data);
       return right(books.items!);

@@ -8,7 +8,9 @@ part 'search_books_state.dart';
 class SearchBooksCubit extends Cubit<SearchBooksState> {
   SearchBooksCubit(this.searchRepoImplementation) : super(SearchBooksInitial());
   final SearchRepoImplementation searchRepoImplementation;
+  late String keyword;
   getSearchedBooks({required String keyword}) async {
+    this.keyword = keyword;
     emit(
       SearchBooksLoading(),
     );

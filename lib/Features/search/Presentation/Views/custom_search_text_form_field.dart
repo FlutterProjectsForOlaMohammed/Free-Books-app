@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:free_books/Features/home/Presentation/views/widgets/search_button.dart';
+import 'package:free_books/Features/search/Presentation/View%20model/Search%20Books%20Cubit/search_books_cubit.dart';
 
 class CustomSearchTextFormField extends StatefulWidget {
   const CustomSearchTextFormField({super.key});
@@ -58,6 +60,8 @@ class _CustomSearchTextFormFieldState extends State<CustomSearchTextFormField> {
               onPressed: () {
                 if (formKey.currentState!.validate()) {
                   formKey.currentState!.save();
+                  BlocProvider.of<SearchBooksCubit>(context)
+                      .getSearchedBooks(keyword: searchedText);
                 }
               },
               backgroundColor: Colors.white.withOpacity(0.6),
