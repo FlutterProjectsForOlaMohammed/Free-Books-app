@@ -2,8 +2,8 @@ import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 import 'package:free_books/Core/errors/failure.dart';
 import 'package:free_books/Core/services/api.dart';
-import 'package:free_books/Features/home/data/Models/books_model/books_model.dart';
-import 'package:free_books/Features/home/data/Models/books_model/item.dart';
+import 'package:free_books/Core/Models/books_model/books_model.dart';
+import 'package:free_books/Core/Models/books_model/item.dart';
 import 'package:free_books/Features/home/data/Repos/home_repo.dart';
 
 class HomeRepoImplementation implements HomeRepo {

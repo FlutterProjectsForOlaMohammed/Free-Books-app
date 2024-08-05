@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:free_books/Features/home/Presentation/views/widgets/authors_list_view.dart';
 import 'package:free_books/Features/home/Presentation/views/widgets/overview.dart';
 import 'package:free_books/Features/home/Presentation/views/widgets/download_and_preview.dart';
-import 'package:free_books/Features/home/data/Models/books_model/item.dart';
+import 'package:free_books/Core/Models/books_model/item.dart';
 
 class BookDetailsTabsBody extends StatelessWidget {
   const BookDetailsTabsBody(

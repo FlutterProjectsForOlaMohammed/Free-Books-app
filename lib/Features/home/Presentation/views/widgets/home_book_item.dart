@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:free_books/Core/utils/app_routes.dart';
 import 'package:free_books/Core/utils/text_styles.dart';
 import 'package:free_books/Features/home/Presentation/views/widgets/book_image.dart';
-import 'package:free_books/Features/home/data/Models/books_model/item.dart';
+import 'package:free_books/Core/Models/books_model/item.dart';
 import 'package:go_router/go_router.dart';
 import 'package:simple_gradient_text/simple_gradient_text.dart';
 

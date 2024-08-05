@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:free_books/Features/home/Presentation/views/widgets/value_and_key_column.dart';
-import 'package:free_books/Features/home/data/Models/books_model/item.dart';
+import 'package:free_books/Core/Models/books_model/item.dart';
 
 class GeneralBookDetailsInfo extends StatelessWidget {
   const GeneralBookDetailsInfo({

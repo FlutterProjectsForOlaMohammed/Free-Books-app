@@ -7,7 +7,7 @@ import 'package:free_books/Features/home/Presentation/view%20models/Newest%20Boo
 import 'package:free_books/Features/home/Presentation/view%20models/Similar%20Books%20Cubit/similar_books_cubit.dart';
 import 'package:free_books/Features/home/Presentation/views/book_details_view.dart';
 import 'package:free_books/Features/home/Presentation/views/home_view.dart';
-import 'package:free_books/Features/home/data/Models/books_model/item.dart';
+import 'package:free_books/Core/Models/books_model/item.dart';
 import 'package:free_books/Features/home/data/Repos/home_repo_implementation.dart';
 import 'package:free_books/Features/search/Presentation/Views/search_view.dart';
 import 'package:free_books/Features/splash/Presentation/views/splash_view.dart';

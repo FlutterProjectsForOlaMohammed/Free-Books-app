@@ -6,7 +6,7 @@ import 'package:free_books/Features/home/Presentation/views/widgets/buy_book.dar
 import 'package:free_books/Features/home/Presentation/views/widgets/custom_close_button.dart';
 import 'package:free_books/Features/home/Presentation/views/widgets/general_book_details.dart';
 import 'package:free_books/Features/home/Presentation/views/widgets/waved_book_image.dart';
-import 'package:free_books/Features/home/data/Models/books_model/item.dart';
+import 'package:free_books/Core/Models/books_model/item.dart';
 
 class BookDetailsViewBody extends StatefulWidget {
   const BookDetailsViewBody({super.key, required this.book});

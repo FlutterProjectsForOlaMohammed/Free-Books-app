@@ -2,7 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:free_books/Core/widgets/loading_indicator.dart';
 import 'package:free_books/Core/widgets/no_image_found.dart';
-import 'package:free_books/Features/home/data/Models/books_model/item.dart';
+import 'package:free_books/Core/Models/books_model/item.dart';
 
 class BookImage extends StatelessWidget {
   const BookImage({

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:free_books/Core/utils/text_styles.dart';
 import 'package:free_books/Features/home/Presentation/views/widgets/buy_button.dart';
-import 'package:free_books/Features/home/data/Models/books_model/item.dart';
+import 'package:free_books/Core/Models/books_model/item.dart';
 
 class BuyBook extends StatelessWidget {
   const BuyBook({

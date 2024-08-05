@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:free_books/Core/Functions/gradient_app_colors.dart';
 import 'package:free_books/Features/home/Presentation/views/widgets/book_details_view_body.dart';
 import 'package:free_books/Features/home/Presentation/views/widgets/book_image.dart';
-import 'package:free_books/Features/home/data/Models/books_model/item.dart';
+import 'package:free_books/Core/Models/books_model/item.dart';
 
 class BookDetailsView extends StatelessWidget {
   const BookDetailsView({super.key, required this.book});

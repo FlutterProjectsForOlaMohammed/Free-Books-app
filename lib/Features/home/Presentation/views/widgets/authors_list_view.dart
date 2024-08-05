@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:free_books/Features/home/Presentation/views/widgets/author_details.dart';
-import 'package:free_books/Features/home/data/Models/books_model/item.dart';
+import 'package:free_books/Core/Models/books_model/item.dart';
 
 class AuthorsListView extends StatefulWidget {
   const AuthorsListView({

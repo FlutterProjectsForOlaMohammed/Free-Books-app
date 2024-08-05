@@ -1,5 +1,5 @@
 import 'package:equatable/equatable.dart';
-import 'package:free_books/Features/home/data/Models/books_model/list_price.dart';
+import 'package:free_books/Core/Models/books_model/list_price.dart';
 
 class SaleInfo extends Equatable {
   final String? country;

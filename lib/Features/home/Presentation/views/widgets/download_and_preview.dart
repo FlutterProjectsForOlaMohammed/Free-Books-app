@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:free_books/Core/Functions/custom_launch_url.dart';
 import 'package:free_books/Features/home/Presentation/views/widgets/custom_list_tile.dart';
-import 'package:free_books/Features/home/data/Models/books_model/item.dart';
+import 'package:free_books/Core/Models/books_model/item.dart';
 
 class DownloadAndPreview extends StatefulWidget {
   const DownloadAndPreview({
