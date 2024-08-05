@@ -7,9 +7,11 @@ class CategoryItem extends StatelessWidget {
     super.key,
     required this.onTap,
     required this.backgroundColor,
+    required this.text,
   });
   final Color backgroundColor;
   final void Function() onTap;
+  final String text;
   @override
   Widget build(BuildContext context) {
     return InkWell(
@@ -21,7 +23,7 @@ class CategoryItem extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
         alignment: Alignment.center,
         child: GradientText(
-          "Romanic",
+          text,
           style: TextStyles.textStyle18,
           colors: const [
             Colors.purple,

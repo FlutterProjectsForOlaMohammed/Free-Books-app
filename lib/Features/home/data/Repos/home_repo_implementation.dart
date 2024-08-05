@@ -8,10 +8,11 @@ import 'package:free_books/Features/home/data/Repos/home_repo.dart';
 
 class HomeRepoImplementation implements HomeRepo {
   @override
-  Future<Either<Failure, List<Item>>> fetchFreeBooks() async {
+  Future<Either<Failure, List<Item>>> fetchFreeBooks(
+      {required String category}) async {
     try {
       BooksModel books = await Api(Dio()).getRequest(
-        endPoint: 'volumes?Filtering=free-ebooks&q=a',
+        endPoint: 'volumes?Filtering=free-ebooks&q=subject:$category',
       );
       return right(books.items!);
     } on DioException catch (e) {
@@ -26,10 +27,11 @@ class HomeRepoImplementation implements HomeRepo {
   }
 
   @override
-  Future<Either<Failure, List<Item>>> fetchNewestBooks() async {
+  Future<Either<Failure, List<Item>>> fetchNewestBooks(
+      {required String category}) async {
     try {
       var data = await Api(Dio()).getRequest(
-        endPoint: 'volumes?Filtering=ebooks&q=subject:general&Sorting=newest',
+        endPoint: 'volumes?Filtering=ebooks&q=subject:$category&Sorting=newest',
       );
       BooksModel books = BooksModel.fromJson(data);
       return right(books.items!);
@@ -49,7 +51,7 @@ class HomeRepoImplementation implements HomeRepo {
       {required String category}) async {
     try {
       BooksModel books = await Api(Dio()).getRequest(
-        endPoint: 'volumes?Filtering=ebooks&q=$category',
+        endPoint: 'volumes?Filtering=ebooks&q=subject:science+$category',
       );
       return right(books.items!);
     } on DioException catch (e) {

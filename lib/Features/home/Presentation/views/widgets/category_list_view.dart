@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:free_books/Features/home/Presentation/view%20models/Newest%20Books%20Cubit/newest_books_cubit.dart';
 import 'package:free_books/Features/home/Presentation/views/widgets/category_item.dart';
 
 class CategoriesListView extends StatefulWidget {
@@ -23,10 +25,14 @@ class _CategoriesListViewState extends State<CategoriesListView> {
         scrollDirection: Axis.horizontal,
         padding: const EdgeInsets.symmetric(horizontal: 30),
         physics: const BouncingScrollPhysics(),
-        itemCount: 10,
+        itemCount: categoriesNames.length,
         itemBuilder: (context, index) {
           return CategoryItem(
+            text: categoriesNames[index],
             onTap: () {
+              BlocProvider.of<NewestBooksCubit>(context).getNewestBooks(
+                category: categoriesNames[index],
+              );
               setState(() {
                 selectedIndex = index;
               });
@@ -40,3 +46,16 @@ class _CategoriesListViewState extends State<CategoriesListView> {
     );
   }
 }
+
+List<String> categoriesNames = [
+  'general',
+  'health',
+  'technology',
+  'science',
+  'math',
+  'computer',
+  'sports',
+  'romantic',
+  'action',
+  'drama'
+];
