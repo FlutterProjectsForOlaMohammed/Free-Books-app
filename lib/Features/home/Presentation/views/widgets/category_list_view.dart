@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:free_books/Features/home/Presentation/view%20models/Free%20Books%20Cubit/free_books_cubit.dart';
 import 'package:free_books/Features/home/Presentation/view%20models/Newest%20Books%20Cubit/newest_books_cubit.dart';
+import 'package:free_books/Features/home/Presentation/view%20models/Similar%20Books%20Cubit/similar_books_cubit.dart';
 import 'package:free_books/Features/home/Presentation/views/widgets/category_item.dart';
 
 class CategoriesListView extends StatefulWidget {
@@ -31,6 +33,12 @@ class _CategoriesListViewState extends State<CategoriesListView> {
             text: categoriesNames[index],
             onTap: () {
               BlocProvider.of<NewestBooksCubit>(context).getNewestBooks(
+                category: categoriesNames[index],
+              );
+              BlocProvider.of<FreeBooksCubit>(context).getFreeBooks(
+                category: categoriesNames[index],
+              );
+              BlocProvider.of<SimilarBooksCubit>(context).getSimilarBooks(
                 category: categoriesNames[index],
               );
               setState(() {

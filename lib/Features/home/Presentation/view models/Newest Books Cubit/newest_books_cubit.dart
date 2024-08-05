@@ -8,7 +8,10 @@ part 'newest_books_state.dart';
 class NewestBooksCubit extends Cubit<NewestBooksState> {
   NewestBooksCubit(this.homeRepoImplementation) : super(NewestBooksInitial());
   final HomeRepoImplementation homeRepoImplementation;
+  late String currentCategory;
+
   getNewestBooks({required String category}) async {
+    currentCategory = category;
     emit(
       NewestBooksLoading(),
     );

@@ -11,9 +11,8 @@ class Rating extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
-      mainAxisSize: MainAxisSize.min,
       children: [
-        Text("4.5",
+        Text(rateingValue.toString(),
             style:
                 TextStyles.textStyle18.copyWith(fontWeight: FontWeight.w600)),
         const SizedBox(
@@ -27,14 +26,17 @@ class Rating extends StatelessWidget {
             full: const Icon(
               Icons.star,
               color: Colors.orange,
+              size: 18,
             ),
             half: const Icon(
               Icons.star_half_outlined,
               color: Colors.orange,
+              size: 18,
             ),
             empty: const Icon(
               Icons.star_border,
               color: Colors.grey,
+              size: 18,
             ),
           ),
           onRatingUpdate: (value) {},

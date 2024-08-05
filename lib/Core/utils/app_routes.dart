@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:free_books/Core/Functions/view_animation.dart';
+import 'package:free_books/Core/utils/service_locator.dart';
+import 'package:free_books/Features/home/Presentation/view%20models/Free%20Books%20Cubit/free_books_cubit.dart';
 import 'package:free_books/Features/home/Presentation/view%20models/Newest%20Books%20Cubit/newest_books_cubit.dart';
+import 'package:free_books/Features/home/Presentation/view%20models/Similar%20Books%20Cubit/similar_books_cubit.dart';
 import 'package:free_books/Features/home/Presentation/views/book_details_view.dart';
 import 'package:free_books/Features/home/Presentation/views/home_view.dart';
 import 'package:free_books/Features/home/data/Models/books_model/item.dart';
@@ -28,10 +31,22 @@ abstract class AppRoutes {
         pageBuilder: (context, state) {
           return viewAnimation(
             state: state,
-            child: BlocProvider(
-              create: (context) => NewestBooksCubit(
-                HomeRepoImplementation(),
-              ),
+            child: MultiBlocProvider(
+              providers: [
+                BlocProvider(
+                  create: (context) => NewestBooksCubit(
+                    getIt<HomeRepoImplementation>(),
+                  ),
+                ),
+                BlocProvider(
+                  create: (context) =>
+                      FreeBooksCubit(getIt<HomeRepoImplementation>()),
+                ),
+                BlocProvider(
+                  create: (context) =>
+                      SimilarBooksCubit(getIt<HomeRepoImplementation>()),
+                ),
+              ],
               child: const HomeView(),
             ),
           );

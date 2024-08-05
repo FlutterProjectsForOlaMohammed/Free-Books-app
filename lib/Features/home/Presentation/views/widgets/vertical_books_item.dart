@@ -1,25 +1,32 @@
 import 'package:flutter/material.dart';
 import 'package:free_books/Core/utils/app_routes.dart';
 import 'package:free_books/Core/utils/text_styles.dart';
+import 'package:free_books/Features/home/Presentation/views/widgets/book_image.dart';
 import 'package:free_books/Features/home/Presentation/views/widgets/rating.dart';
+import 'package:free_books/Features/home/data/Models/books_model/item.dart';
 import 'package:go_router/go_router.dart';
 
 class VerticalBookItem extends StatelessWidget {
-  const VerticalBookItem({super.key});
-
+  const VerticalBookItem({super.key, required this.book});
+  final Item book;
   @override
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        GoRouter.of(context).push(AppRoutes.bookDetailsView);
+        GoRouter.of(context).push(
+          AppRoutes.bookDetailsView,
+          extra: book,
+        );
       },
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 30),
         child: SizedBox(
-            height: MediaQuery.of(context).size.height * 0.14,
+            height: MediaQuery.of(context).size.height * 0.16,
             child: Row(
               children: [
-                //  const BookImage(),
+                BookImage(
+                  book: book,
+                ),
                 const SizedBox(
                   width: 24,
                 ),
@@ -30,30 +37,34 @@ class VerticalBookItem extends StatelessWidget {
                       const SizedBox(
                         height: 8,
                       ),
-                      const Text(
-                        "Book Name",
+                      Text(
+                        book.volumeInfo!.title!,
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
                         style: TextStyles.textStyle20,
                       ),
                       Text(
-                        "Auther Name",
-                        style: TextStyles.textStyle18.copyWith(
+                        book.volumeInfo!.authors?.join(" & ") ??
+                            "unknown author",
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                        style: TextStyles.textStyle16.copyWith(
                             fontWeight: FontWeight.w600,
                             color: Colors.black.withOpacity(0.6),
                             fontStyle: FontStyle.italic),
                       ),
                       const SizedBox(
-                        height: 16,
+                        height: 8,
                       ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text("Free",
-                              style: TextStyles.textStyle18
-                                  .copyWith(fontWeight: FontWeight.w600)),
-                          const Rating(
-                            rateingValue: 3.5,
-                          ),
-                        ],
+                      Text(
+                        checkBooksPrice(book: book),
+                        style: TextStyles.textStyle20Roboto.copyWith(
+                            fontWeight: FontWeight.w600, fontSize: 18),
+                      ),
+                      Rating(
+                        rateingValue: (book.volumeInfo!.averageRating == null)
+                            ? 0.0
+                            : book.volumeInfo!.averageRating!.toDouble(),
                       ),
                     ],
                   ),
@@ -62,5 +73,13 @@ class VerticalBookItem extends StatelessWidget {
             )),
       ),
     );
+  }
+
+  String checkBooksPrice({required Item book}) {
+    if (book.saleInfo!.listPrice == null) {
+      return "Free";
+    } else {
+      return "${book.saleInfo!.listPrice!.amount} ${book.saleInfo!.listPrice!.currencyCode}";
+    }
   }
 }
