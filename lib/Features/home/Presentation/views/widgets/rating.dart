@@ -19,6 +19,7 @@ class Rating extends StatelessWidget {
           width: 8,
         ),
         RatingBar(
+          ignoreGestures: true,
           itemSize: 28,
           initialRating: rateingValue,
           allowHalfRating: true,

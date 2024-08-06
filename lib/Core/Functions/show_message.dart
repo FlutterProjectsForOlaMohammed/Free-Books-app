@@ -1,16 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:free_books/Core/utils/constants.dart';
 
-void showMessgae({
+void showMessage({
   required String text,
 }) {
   Fluttertoast.showToast(
     msg: text,
-    backgroundColor: Colors.grey,
+    backgroundColor: Colors.grey[400],
     fontSize: 18,
     gravity: ToastGravity.BOTTOM,
-    textColor: avaliableColor,
+    textColor: Colors.blue[900],
     toastLength: Toast.LENGTH_LONG,
   );
 }

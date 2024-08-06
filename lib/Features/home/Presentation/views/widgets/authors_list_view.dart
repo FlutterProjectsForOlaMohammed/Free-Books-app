@@ -28,7 +28,7 @@ class _AuthorsListViewState extends State<AuthorsListView> {
           controller: scrollController,
           physics: const BouncingScrollPhysics(),
           shrinkWrap: true,
-          itemCount: widget.book.volumeInfo?.authors!.length ?? 0,
+          itemCount: widget.book.volumeInfo?.authors?.length ?? 0,
           itemBuilder: (context, index) {
             return AuthorDetails(
                 author: widget.book.volumeInfo?.authors![index] ?? "");

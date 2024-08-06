@@ -12,10 +12,10 @@ Future<void> customLaunchUrl({required String url}) async {
         mode: LaunchMode.externalApplication,
       );
     } else {
-      showMessgae(text: 'Could not launch $url');
+      showMessage(text: 'Could not launch $url');
     }
   } on Exception catch (e) {
-    showMessgae(
+    showMessage(
       text: e.toString(),
     );
   }

@@ -15,9 +15,12 @@ class HomeRepoImplementation implements HomeRepo {
       {required String category}) async {
     try {
       var data = await api.getRequest(
-        endPoint: 'volumes?Filtering=free-ebooks&q=subject:$category life',
+        endPoint: 'volumes?Filtering=free-ebooks&q=subject:life $category',
       );
       BooksModel books = BooksModel.fromJson(data);
+      if (books.totalItems == 0) {
+        return right([]);
+      }
       return right(books.items!);
     } on DioException catch (e) {
       return left(DioExceptionsFailures.handleErrors(e));
@@ -36,9 +39,12 @@ class HomeRepoImplementation implements HomeRepo {
     try {
       var data = await api.getRequest(
         endPoint:
-            'volumes?Filtering=ebooks&q=subject:$category trend&Sorting=newest',
+            'volumes?Filtering=ebooks&q=subject:popular $category&Sorting=newest',
       );
       BooksModel books = BooksModel.fromJson(data);
+      if (books.totalItems == 0) {
+        return right([]);
+      }
       return right(books.items!);
     } on DioException catch (e) {
       return left(DioExceptionsFailures.handleErrors(e));
@@ -59,6 +65,9 @@ class HomeRepoImplementation implements HomeRepo {
         endPoint: 'volumes?Filtering=ebooks&q=subject:science+$category',
       );
       BooksModel books = BooksModel.fromJson(data);
+      if (books.totalItems == 0) {
+        return right([]);
+      }
       return right(books.items!);
     } on DioException catch (e) {
       return left(DioExceptionsFailures.handleErrors(e));

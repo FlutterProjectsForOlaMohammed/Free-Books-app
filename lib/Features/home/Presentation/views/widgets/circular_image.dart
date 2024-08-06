@@ -10,7 +10,7 @@ class CircularImage extends StatelessWidget {
     return CircleAvatar(
       backgroundColor: Colors.black.withOpacity(0.06),
       radius: 28,
-      child: Icon(
+      child: const Icon(
         Icons.perm_identity_sharp,
         size: 32,
         color: Colors.grey,

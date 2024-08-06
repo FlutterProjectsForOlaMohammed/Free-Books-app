@@ -18,7 +18,10 @@ class BookImage extends StatelessWidget {
         borderRadius: BorderRadius.circular(16),
         child: CachedNetworkImage(
           fit: BoxFit.fill,
-          imageUrl: book.volumeInfo!.imageLinks?.thumbnail ?? "",
+          imageUrl: book.volumeInfo!.imageLinks?.thumbnail
+                  ?.trim()
+                  .replaceAll('&zoom=1', '') ??
+              "",
           errorWidget: (context, url, error) {
             return const NoImageFound();
           },

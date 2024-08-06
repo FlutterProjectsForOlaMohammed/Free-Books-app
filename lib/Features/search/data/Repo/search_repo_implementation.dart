@@ -18,6 +18,9 @@ class SearchRepoImplementation implements SearchRepo {
         endPoint: 'volumes?Filtering=free-ebooks&q=title:$keyword',
       );
       BooksModel books = BooksModel.fromJson(data);
+      if (books.totalItems == 0) {
+        return right([]);
+      }
       return right(books.items!);
     } on DioException catch (e) {
       return left(DioExceptionsFailures.handleErrors(e));

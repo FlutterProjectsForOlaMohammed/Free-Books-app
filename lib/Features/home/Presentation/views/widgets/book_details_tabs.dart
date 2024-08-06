@@ -51,23 +51,3 @@ class BookDetailsTabs extends StatelessWidget {
     ];
   }
 }
-
-class CustomTabBody extends StatelessWidget {
-  const CustomTabBody({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      child: const Text('''
-
-You can modify the tab indicator in TabBar to customize the look and feel of your Flutter app.
-
-Below are some examples of ways you can modify the indicator to improve the user experience and overall appearance of your app.
-Changing the background color of tab is as easy as changing the color: Colors.greenAccent.
-Changing the background color of tab is as easy as changing the color: Colors.greenAccent.
-Changing the background color of tab is as easy as changing the color: Colors.greenAccent.
-Changing the background color of tab is as easy as changing the color: Colors.greenAccent.
-'''),
-    );
-  }
-}

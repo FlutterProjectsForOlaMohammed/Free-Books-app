@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import 'package:free_books/Core/Functions/show_message.dart';
 
 abstract class Failure {
   final String errMessage;
@@ -41,11 +42,17 @@ class DioExceptionsFailures extends Failure {
           message: 'Request was cancelled.',
         );
       case DioExceptionType.connectionError:
+        showMessage(
+            text:
+                "There is No Internt Connection , Please Check Your Connection ... ");
         return DioExceptionsFailures(
           message: 'Connection error. Please check your internet connection.',
         );
       default:
         if (dioError.message?.contains("SocketException") ?? false) {
+          showMessage(
+              text:
+                  "There is No Internt Connection , Please Check Your Connection ... ");
           return DioExceptionsFailures(
             message: "No Internet Connection , Check Your Connection . ",
           );
