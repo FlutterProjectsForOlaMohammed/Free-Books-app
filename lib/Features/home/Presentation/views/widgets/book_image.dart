@@ -12,23 +12,24 @@ class BookImage extends StatelessWidget {
   final Item book;
   @override
   Widget build(BuildContext context) {
+    String? imageUrl = book.volumeInfo!.imageLinks?.thumbnail;
+
     return AspectRatio(
       aspectRatio: 2.8 / 4,
       child: ClipRRect(
         borderRadius: BorderRadius.circular(16),
-        child: CachedNetworkImage(
-          fit: BoxFit.fill,
-          imageUrl: book.volumeInfo!.imageLinks?.thumbnail
-                  ?.trim()
-                  .replaceAll('&zoom=1', '') ??
-              "",
-          errorWidget: (context, url, error) {
-            return const NoImageFound();
-          },
-          placeholder: (context, url) {
-            return const Loading();
-          },
-        ),
+        child: (imageUrl == null)
+            ? const Loading()
+            : CachedNetworkImage(
+                fit: BoxFit.fill,
+                imageUrl: "${book.volumeInfo!.imageLinks?.thumbnail}",
+                errorWidget: (context, url, error) {
+                  return const NoImageFound();
+                },
+                placeholder: (context, url) {
+                  return const Loading();
+                },
+              ),
       ),
     );
   }
